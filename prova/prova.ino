@@ -13,9 +13,22 @@ int StatoLed = HIGH; //stato led
 
 int CreazioneTempoAccensioneLed; 
 int CreazioneTempoAccensioneBuzzer;
+int StatoBottoneStart;
+int StatoBottoneLed;
+int StatoBottoneBuzzer;
+int buzzer;
+int VERDE;
+int BLU;
+int ROSSO;
+int ledblu;
 
-//pin a cui sarà collegato i pulsanti, buzzer ed i led 
-int StatoBottoneBuzzer = 1;
+
+
+
+void setup(){
+
+  //pin a cui sarà collegato i pulsanti, buzzer ed i led 
+int StatoBottoneStart = 1;
 int StatoBottoneLed = 2 ;
 int StatoBottoneBuzzer = 3;
 int buzzer = 4;
@@ -23,11 +36,6 @@ int VERDE = 5;
 int BLU = 6;
 int ROSSO = 7;
 int ledblu = 8;
-
-
-
-void setup(){
-  
   // assegnamento valori del tempo
   
   TempoBuzzer = 0; // tempo iniziale parte da 0
@@ -40,10 +48,9 @@ void setup(){
   
   //Imposto gli input
   
-  pinMode(buttonInizio,INPUT);
-  pinMode(btn_primoRiflesso,INPUT);
-  pinMode(btn_secondoRiflesso,INPUT);
-  pinMode(buttonInizio,INPUT);
+  pinMode(StatoBottoneStart,INPUT);
+  pinMode(StatoBottoneLed,INPUT);
+  pinMode(StatoBottoneBuzzer,INPUT);
 
   //Imposto gli output 
   
@@ -51,7 +58,7 @@ void setup(){
   pinMode(BLU, OUTPUT);
   pinMode(ROSSO, OUTPUT);
   pinMode(buzzer,OUTPUT);
-  pinMode(ledblu;OUTPUT);
+  pinMode(ledblu,OUTPUT);
   
   
 }
