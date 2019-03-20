@@ -1,5 +1,4 @@
 int TempoBuzzer;
-
 int TempoLed;
 int pinLed;
 int Buzzer;
@@ -16,12 +15,14 @@ int StatoBuzzer = LOW; // stato buzzer
 int CreazioneTempoAccensioneLed; 
 int CreazioneTempoAccensioneBuzzer;
 
-// pin a cui collegare i piedini del LED RGB
-
-const int VERDE = 9;
-const int BLU = 10;
-const int ROSSO = 11;
-
+//pin a cui sarà collegato i pulsanti, buzzer ed i led 
+int buttonInizio = 1;
+int btn_primoRiflesso = 2 ;
+int btn_secondoRiflesso = 3;
+int buzzer = 4;
+int VERDE = 5;
+int BLU = 6;
+int ROSSO = 7;
 
 
 
@@ -37,20 +38,29 @@ void setup(){
   CreazioneTempoAccensioneLed = random (1000,4000); // do un valore random che sarà il delay prima dell'accensione
   CreazioneTempoAccensioneBuzzer = random (1000,4000); // do un valore random che sarà il delay prima dell'accensione
   
-  // Stato dei pin del led rgb 
+  //Imposto gli input
   
-  digitalWrite(VERDE,LOW);
-  digitalWrite(ROSSO,LOW);
-  digitalWrite(BLU,LOW);
+  pinMode(buttonInizio,INPUT);
+  pinMode(btn_primoRiflesso,INPUT);
+  pinMode(btn_secondoRiflesso,INPUT);
+  pinMode(buttonInizio,INPUT);
+
+  //Imposto gli output 
   
-  
+  pinMode(VERDE, OUTPUT);
+  pinMode(BLU, OUTPUT);
+  pinMode(ROSSO, OUTPUT);
+  pinMode(buzzer,OUTPUT);
   
   
 }
 void loop(){
   if (StatoBottoneStart == HIGH) // se il bottone è premuto parte il gioco
   {
-    
+    digitalWrite(VERDE,LOW);
+    digitalWrite(ROSSO,LOW);
+    digitalWrite(BLU,LOW);
+
     delay (CreazioneTempoAccensioneLed); //delay random
     digitalWrite(pinLed,HIGH); // accendo il led 
     
